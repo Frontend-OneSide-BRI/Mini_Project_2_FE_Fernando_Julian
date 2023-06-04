@@ -1,4 +1,14 @@
+import { useState } from "react";
+
 const Search = () => {
+  const [items, setItems] = useState("");
+
+  const handleChange = (event) => {
+    setItems(event.target.value);
+
+    console.log(event.target.value);
+  };
+
   return (
     <>
       <div>
@@ -29,7 +39,9 @@ const Search = () => {
                 <input
                   class="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
                   type="text"
-                  id="search"
+                  id="searchInput"
+                  onChange={handleChange}
+                  value={items}
                   placeholder="Search something.."
                 />
               </div>
