@@ -16,6 +16,24 @@ code {
     monospace;
 }
 
+.parallaxHeader {
+  height: 200px;
+  padding: 48px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: url(https://source.unsplash.com/1920x300/?blurpink); */
+  background-color: #f7e1e4;
+  text-align: center;
+}
+
+.titleParallaxHeader,
+.searchParallaxHeader {
+  margin: auto;
+  height: 61px;
+}
+
 .carousel {
   position: relative;
 }
