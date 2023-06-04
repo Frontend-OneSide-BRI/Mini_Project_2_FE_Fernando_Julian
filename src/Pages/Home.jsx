@@ -1,7 +1,7 @@
 import Navigation from "../Component/Navigation";
 
 const Home = () => {
-  return ( 
+  return (
     <>
       <Navigation />
     </>
