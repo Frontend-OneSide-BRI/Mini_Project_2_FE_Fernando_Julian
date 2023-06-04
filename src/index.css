@@ -16,8 +16,21 @@ code {
     monospace;
 }
 
+.image-container {
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.image-container img {
+  transition: transform 0.5s;
+}
+
+.image-container:hover img {
+  transform: scale(1.2);
+}
+
 .parallaxHeader {
-  height: 200px;
+  height: 270px;
   padding: 48px;
   background-attachment: fixed;
   background-position: center;

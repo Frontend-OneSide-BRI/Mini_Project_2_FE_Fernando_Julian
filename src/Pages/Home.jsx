@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <Navigation />
       <Carousel />
-      <Search />
+      {/* <Search /> */}
       <Card />
       <Footer />
     </>

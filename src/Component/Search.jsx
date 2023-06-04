@@ -1,12 +1,43 @@
 import { useState } from "react";
 
 const Search = () => {
+  const urlImages = "https://source.unsplash.com/448x600/?";
+
   const [items, setItems] = useState("");
+  const [btnValue, setBtnValue] = useState("");
 
   const handleChange = (event) => {
     setItems(event.target.value);
+    const input = event.target.value;
+    var img = document.querySelectorAll("#gambar");
+    for (var i = 0; i < img.length; i++) {
+      img[i].src = urlImages + input + "&sig=" + i;
+    }
+  };
 
-    console.log(event.target.value);
+  const showCategory = document.getElementById("showCategory");
+
+  const handleBtn = (e) => {
+    setBtnValue(e.target.value);
+    const input = e.target.value;
+    console.log(input);
+
+    showCategory.textContent = "";
+    for (var i = 0; i < 3; i++) {
+      const card = document.createElement("div");
+      card.setAttribute("class", "card w-auto mx-1");
+
+      const imageContainer = document.createElement("div");
+      imageContainer.setAttribute("class", "image-container overflow-hidden");
+
+      const image = document.createElement("img");
+      image.setAttribute("class", "rounded-3xl");
+      image.setAttribute("src", urlImages + input + "&sig=" + i);
+
+      imageContainer.appendChild(image);
+      card.appendChild(imageContainer);
+      showCategory.appendChild(card);
+    }
   };
 
   return (
@@ -47,6 +78,95 @@ const Search = () => {
               </div>
             </div>
           </div>
+          <div className="px-4 mt-2">
+            <button
+              class="rounded-lg px-4 py-2 bg-gray-900 text-gray-100 mx-1"
+              onClick={handleBtn}
+              value="nature"
+            >
+              Nature
+            </button>
+            <button
+              class="rounded-lg px-4 py-2 bg-gray-900 text-gray-100 mx-1"
+              onClick={handleBtn}
+              value="tech"
+            >
+              Tech
+            </button>
+            <button
+              class="rounded-lg px-4 py-2 bg-gray-900 text-gray-100 mx-1"
+              onClick={handleBtn}
+              value="animal"
+            >
+              Animal
+            </button>
+            <button
+              class="rounded-lg px-4 py-2 bg-gray-900 text-gray-100 mx-1"
+              onClick={handleBtn}
+              value="people"
+            >
+              People
+            </button>
+            <button
+              class="rounded-lg px-4 py-2 bg-gray-900 text-gray-100 mx-1"
+              onClick={handleBtn}
+              value="vehicle"
+            >
+              Vehicle
+            </button>
+          </div>
+          <div className="resultSearch"></div>
+        </div>
+
+        <div className="resultSearch">
+          <div class="container-fluid justify-content-center text-center mt-4">
+            <h1 className="text-3xl font-semibold pb-4">Your Category</h1>
+            <div
+              class="card-group flex flex-wrap justify-center"
+              id="showCategory"
+            ></div>
+          </div>
+
+          <section id="popularImages" class="m-2">
+            <div class="container-fluid text-center m-3">
+              <h1 class="text-3xl font-semibold my-8">Your pict of the day!</h1>
+              <div
+                id="wrapperCard"
+                class="card-group flex flex-wrap justify-center"
+              >
+                <div class="card w-auto mx-1">
+                  <div id="searchImage" class="image-container overflow-hidden">
+                    <img
+                      src="https://source.unsplash.com/448x600/?robot&sig=1"
+                      class="rounded-3xl"
+                      alt="..."
+                      id="gambar"
+                    />
+                  </div>
+                </div>
+                <div class="card w-auto mx-1">
+                  <div id="searchImage" class="image-container overflow-hidden">
+                    <img
+                      src="https://source.unsplash.com/448x600/?robot&sig=2"
+                      class="rounded-3xl"
+                      alt="..."
+                      id="gambar"
+                    />
+                  </div>
+                </div>
+                <div class="card w-auto mx-1">
+                  <div id="searchImage" class="image-container overflow-hidden">
+                    <img
+                      src="https://source.unsplash.com/448x600/?robot&sig=3"
+                      class="rounded-3xl"
+                      alt="..."
+                      id="gambar"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </>

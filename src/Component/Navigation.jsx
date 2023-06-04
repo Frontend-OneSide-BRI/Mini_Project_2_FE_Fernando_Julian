@@ -1,4 +1,6 @@
 const Navigation = () => {
+  // grab everything we need
+
   return (
     <>
       <div>
